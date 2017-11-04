@@ -1,0 +1,323 @@
+bash-3.2$ aws
+usage: aws [options] <command> <subcommand> [<subcommand> ...] [parameters]
+To see help text, you can run:
+
+  aws help
+  aws <command> help
+  aws <command> <subcommand> help
+aws: error: too few arguments
+bash-3.2$ aws configure
+Default region name [None]: us-west-2
+Default output format [None]: text
+bash-3.2$ cd my_projects/
+bash-3.2$ mkdir DeepLearning
+bash-3.2$ cd DeepLearning/
+bash-3.2$ vi setup_p2.sh
+bash-3.2$ chmod 700 setup_p2.sh 
+bash-3.2$ ./setup_p2.sh 
+./setup_p2.sh: line 20: ./setup_instance.sh: No such file or directory
+bash-3.2$ vi setup_p2.sh 
+bash-3.2$ vi setup_instance.sh
+bash-3.2$ ./setup_p2.sh 
+
+True
+Waiting for instance start...
+
+All done. Find all you need to connect in the fast-ai-commands.txt file and to remove the stack call fast-ai-remove.sh
+Connect to your instance: ssh -i /Users/serge/.ssh/aws-key-fast-ai.pem ubuntu@ec2-52-88-143-85.us-west-2.compute.amazonaws.com
+bash-3.2$ 
+bash-3.2$ 
+bash-3.2$ ls
+fast-ai-commands.txt	fast-ai-remove.sh	setup_instance.sh	setup_p2.sh
+bash-3.2$ ssh -i /Users/serge/.ssh/aws-key-fast-ai.pem ubuntu@ec2-52-88-143-85.us-west-2.compute.amazonaws.com
+The authenticity of host 'ec2-52-88-143-85.us-west-2.compute.amazonaws.com (52.88.143.85)' can't be established.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'ec2-52-88-143-85.us-west-2.compute.amazonaws.com,52.88.143.85' (ECDSA) to the list of known hosts.
+Welcome to Ubuntu 16.04.1 LTS (GNU/Linux 4.4.0-36-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+7 packages can be updated.
+4 updates are security updates.
+
+
+Last login: Sun Oct 16 02:04:33 2016 from 124.110.152.24
+_____________________________________________________________________
+WARNING! Your environment specifies an invalid locale.
+ The unknown environment variables are:
+   LC_CTYPE=UTF-8 LC_ALL=
+ This can affect your user experience significantly, including the
+ ability to manage packages. You may install the locales by running:
+
+   sudo apt-get install language-pack-UTF-8
+     or
+   sudo locale-gen UTF-8
+
+To see all available language packs, run:
+   apt-cache search "^language-pack-[a-z][a-z]$"
+To disable this message for all users, run:
+   sudo touch /var/lib/cloud/instance/locale-check.skip
+_____________________________________________________________________
+
+ubuntu@ip-10-0-0-10:~$ top
+
+top - 19:55:27 up 0 min,  1 user,  load average: 1.41, 0.38, 0.13
+Tasks: 163 total,   1 running, 162 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  4.0 us,  4.5 sy,  0.4 ni, 49.9 id, 27.4 wa,  0.0 hi,  0.4 si, 13.5 st
+KiB Mem : 62879944 total, 62231160 free,   262472 used,   386312 buff/cache
+KiB Swap:        0 total,        0 free,        0 used. 62132848 avail Mem 
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND                                                                                                      
+ 1612 root      39  19  110840  53632  11120 D   6.7  0.1   0:00.83 apt-check 
+
+                                                       
+ubuntu@ip-10-0-0-10:~$ cat /proc/cpuinfo 
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb000021
+cpu MHz		: 2699.625
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx xsaveopt
+bugs		:
+bogomips	: 4600.08
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb000021
+cpu MHz		: 2700.433
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx xsaveopt
+bugs		:
+bogomips	: 4600.08
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb000021
+cpu MHz		: 2701.062
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx xsaveopt
+bugs		:
+bogomips	: 4600.08
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 79
+model name	: Intel(R) Xeon(R) CPU E5-2686 v4 @ 2.30GHz
+stepping	: 1
+microcode	: 0xb000021
+cpu MHz		: 2699.984
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 2
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch fsgsbase bmi1 hle avx2 smep bmi2 erms invpcid rtm rdseed adx xsaveopt
+bugs		:
+bogomips	: 4600.08
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+ubuntu@ip-10-0-0-10:~$ uptime
+ 19:55:49 up 1 min,  1 user,  load average: 1.32, 0.44, 0.16
+ubuntu@ip-10-0-0-10:~$ exit
+logout
+Connection to ec2-52-88-143-85.us-west-2.compute.amazonaws.com closed.
+
+
+bash-3.2$ cat setup_instance.sh 
+#!/bin/bash
+#
+# This script should be invoked via setup_t2.sh or setup_p2.sh; those scripts
+# will export the right environment variables for this to succeed.
+
+# uncomment for debugging
+# set -x
+
+if [ -z "$ami" ] || [ -z "$instanceType" ]; then
+    echo "Missing \$ami or \$instanceType; this script should be called from"
+    echo "setup_t2.sh or setup_p2.sh!"
+    exit 1
+fi
+
+# settings
+export name="fast-ai"
+export cidr="0.0.0.0/0"
+
+hash aws 2>/dev/null
+if [ $? -ne 0 ]; then
+    echo >&2 "'aws' command line tool required, but not installed.  Aborting."
+    exit 1
+fi
+
+if [ -z "$(aws configure get aws_access_key_id)" ]; then
+    echo "AWS credentials not configured.  Aborting"
+    exit 1
+fi
+
+export vpcId=$(aws ec2 create-vpc --cidr-block 10.0.0.0/28 --query 'Vpc.VpcId' --output text)
+aws ec2 create-tags --resources $vpcId --tags --tags Key=Name,Value=$name
+aws ec2 modify-vpc-attribute --vpc-id $vpcId --enable-dns-support "{\"Value\":true}"
+aws ec2 modify-vpc-attribute --vpc-id $vpcId --enable-dns-hostnames "{\"Value\":true}"
+
+export internetGatewayId=$(aws ec2 create-internet-gateway --query 'InternetGateway.InternetGatewayId' --output text)
+aws ec2 create-tags --resources $internetGatewayId --tags --tags Key=Name,Value=$name-gateway
+aws ec2 attach-internet-gateway --internet-gateway-id $internetGatewayId --vpc-id $vpcId
+
+export subnetId=$(aws ec2 create-subnet --vpc-id $vpcId --cidr-block 10.0.0.0/28 --query 'Subnet.SubnetId' --output text)
+aws ec2 create-tags --resources $subnetId --tags --tags Key=Name,Value=$name-subnet
+
+export routeTableId=$(aws ec2 create-route-table --vpc-id $vpcId --query 'RouteTable.RouteTableId' --output text)
+aws ec2 create-tags --resources $routeTableId --tags --tags Key=Name,Value=$name-route-table
+export routeTableAssoc=$(aws ec2 associate-route-table --route-table-id $routeTableId --subnet-id $subnetId --output text)
+aws ec2 create-route --route-table-id $routeTableId --destination-cidr-block 0.0.0.0/0 --gateway-id $internetGatewayId
+
+export securityGroupId=$(aws ec2 create-security-group --group-name $name-security-group --description "SG for fast.ai machine" --vpc-id $vpcId --query 'GroupId' --output text)
+# ssh
+aws ec2 authorize-security-group-ingress --group-id $securityGroupId --protocol tcp --port 22 --cidr $cidr
+# jupyter notebook
+aws ec2 authorize-security-group-ingress --group-id $securityGroupId --protocol tcp --port 8888-8898 --cidr $cidr
+
+if [ ! -d ~/.ssh ]
+then
+	mkdir ~/.ssh
+fi
+
+if [ ! -f ~/.ssh/aws-key-$name.pem ]
+then
+	aws ec2 create-key-pair --key-name aws-key-$name --query 'KeyMaterial' --output text > ~/.ssh/aws-key-$name.pem
+	chmod 400 ~/.ssh/aws-key-$name.pem
+fi
+
+export instanceId=$(aws ec2 run-instances --image-id $ami --count 1 --instance-type $instanceType --key-name aws-key-$name --security-group-ids $securityGroupId --subnet-id $subnetId --associate-public-ip-address --block-device-mapping "[ { \"DeviceName\": \"/dev/sda1\", \"Ebs\": { \"VolumeSize\": 128, \"VolumeType\": \"gp2\" } } ]" --query 'Instances[0].InstanceId' --output text)
+aws ec2 create-tags --resources $instanceId --tags --tags Key=Name,Value=$name-gpu-machine
+export allocAddr=$(aws ec2 allocate-address --domain vpc --query 'AllocationId' --output text)
+
+echo Waiting for instance start...
+aws ec2 wait instance-running --instance-ids $instanceId
+sleep 10 # wait for ssh service to start running too
+export assocId=$(aws ec2 associate-address --instance-id $instanceId --allocation-id $allocAddr --query 'AssociationId' --output text)
+export instanceUrl=$(aws ec2 describe-instances --instance-ids $instanceId --query 'Reservations[0].Instances[0].PublicDnsName' --output text)
+#export ebsVolume=$(aws ec2 describe-instance-attribute --instance-id $instanceId --attribute  blockDeviceMapping  --query BlockDeviceMappings[0].Ebs.VolumeId --output text)
+
+# reboot instance, because I was getting "Failed to initialize NVML: Driver/library version mismatch"
+# error when running the nvidia-smi command
+# see also http://forums.fast.ai/t/no-cuda-capable-device-is-detected/168/13
+aws ec2 reboot-instances --instance-ids $instanceId
+
+# save commands to file
+echo \# Connect to your instance: > $name-commands.txt # overwrite existing file
+echo ssh -i ~/.ssh/aws-key-$name.pem ubuntu@$instanceUrl >> $name-commands.txt
+echo \# Stop your instance: : >> $name-commands.txt
+echo aws ec2 stop-instances --instance-ids $instanceId  >> $name-commands.txt
+echo \# Start your instance: >> $name-commands.txt
+echo aws ec2 start-instances --instance-ids $instanceId  >> $name-commands.txt
+echo \# Reboot your instance: >> $name-commands.txt
+echo aws ec2 reboot-instances --instance-ids $instanceId  >> $name-commands.txt
+echo ""
+# export vars to be sure
+echo export instanceId=$instanceId >> $name-commands.txt
+echo export subnetId=$subnetId >> $name-commands.txt
+echo export securityGroupId=$securityGroupId >> $name-commands.txt
+echo export instanceUrl=$instanceUrl >> $name-commands.txt
+echo export routeTableId=$routeTableId >> $name-commands.txt
+echo export name=$name >> $name-commands.txt
+echo export vpcId=$vpcId >> $name-commands.txt
+echo export internetGatewayId=$internetGatewayId >> $name-commands.txt
+echo export subnetId=$subnetId >> $name-commands.txt
+echo export allocAddr=$allocAddr >> $name-commands.txt
+echo export assocId=$assocId >> $name-commands.txt
+echo export routeTableAssoc=$routeTableAssoc >> $name-commands.txt
+
+# save delete commands for cleanup
+echo "#!/bin/bash" > $name-remove.sh # overwrite existing file
+echo aws ec2 disassociate-address --association-id $assocId >> $name-remove.sh
+echo aws ec2 release-address --allocation-id $allocAddr >> $name-remove.sh
+
+# volume gets deleted with the instance automatically
+echo aws ec2 terminate-instances --instance-ids $instanceId >> $name-remove.sh
+echo aws ec2 wait instance-terminated --instance-ids $instanceId >> $name-remove.sh
+echo aws ec2 delete-security-group --group-id $securityGroupId >> $name-remove.sh
+
+echo aws ec2 disassociate-route-table --association-id $routeTableAssoc >> $name-remove.sh
+echo aws ec2 delete-route-table --route-table-id $routeTableId >> $name-remove.sh
+
+echo aws ec2 detach-internet-gateway --internet-gateway-id $internetGatewayId --vpc-id $vpcId >> $name-remove.sh
+echo aws ec2 delete-internet-gateway --internet-gateway-id $internetGatewayId >> $name-remove.sh
+echo aws ec2 delete-subnet --subnet-id $subnetId >> $name-remove.sh
+
+echo aws ec2 delete-vpc --vpc-id $vpcId >> $name-remove.sh
+echo echo If you want to delete the key-pair, please do it manually. >> $name-remove.sh
+
+chmod +x $name-remove.sh
+
+echo All done. Find all you need to connect in the $name-commands.txt file and to remove the stack call $name-remove.sh
+echo Connect to your instance: ssh -i ~/.ssh/aws-key-$name.pem ubuntu@$instanceUrl
+

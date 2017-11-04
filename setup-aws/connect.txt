@@ -1,0 +1,4 @@
+Waiting for instance start...
+
+All done. Find all you need to connect in the fast-ai-commands.txt file and to remove the stack call fast-ai-remove.sh
+Connect to your instance: ssh -i /Users/serge/.ssh/aws-key-fast-ai.pem ubuntu@ec2-52-88-143-85.us-west-2.compute.amazonaws.com
